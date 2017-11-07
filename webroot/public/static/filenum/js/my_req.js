@@ -1,0 +1,1 @@
+$('#navbar li').eq(1).addClass('active');

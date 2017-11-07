@@ -1,0 +1,70 @@
+<div class="container" ng-app="user_reg">
+
+    <div class="page-header">
+        <h1>用户<small>注册</small></h1>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <form action="{:url('filenum/user/reg')}" method="POST" class="form-horizontal" role="form">
+
+            <div class="form-group">
+                <label for="inputUserName" class="col-sm-2 control-label">用户姓名:</label>
+                <div class="col-sm-10">
+                    <input type="text" name="name" id="inputUserName" class="form-control" value="" title="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">密码:</label>
+                <div class="col-sm-10">
+                    <input type="password" name="password" id="inputPassword" class="form-control" required="required" title="">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputPassword" class="col-sm-2 control-label">确认密码:</label>
+                <div class="col-sm-10">
+                    <input type="password" name="" id="inputPassword" class="form-control" required="required" title="">
+                </div>
+            </div>
+
+            <div class="form-group" ng-controller="dept_list">
+                <label for="inputDept" class="col-sm-2 control-label">所属部局:</label>
+                <div class="col-sm-10">
+                    <select name="dept" id="inputDept" class="form-control">
+                        <option value="" ng-repeat="dept in depts" data-ng-value="dept.id">{{dept.deptname}}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-xs-10 col-sm-10  col-sm-offset-2">
+                    <div class="checkbox">
+                        <label> <input name="usepassword" type="checkbox" checked="checked"> 使用密码登录 </label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <input type="reset" value="Reset" class="btn btn-default">
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                登记此电脑&nbsp;(&nbsp;ip:{$ip}&nbsp;)&nbsp;作为您申请电脑的凭证。
+            </div>
+        </div>
+
+    </div>
+</div>

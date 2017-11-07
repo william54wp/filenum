@@ -1,0 +1,67 @@
+<div class="container" ng-app="deptMgr">
+    <div class="page-header">
+        <h1>单位管理</h1>
+    </div>
+
+    <div class="row">
+
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <ul class="list-group" ng-controller="deptList">
+                <li class="list-group-item" ng-repeat="dept in depts">
+                    {{dept.deptname}}
+                    <a href="#" class="pull-right"><span class="glyphicon glyphicon-edit" style="margin-left:.5em;"></span></a>
+                    <a href="#" class="pull-right"><span class="glyphicon glyphicon-sort"></span></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">增加单位</h3>
+                </div>
+                <div class="panel-body">
+
+                    <form action="{:url('filenum/dept/add')}" method="POST" class="form-horizontal" role="form" ng-controller="addDept">
+                        <div class="form-group">
+                            <label for="inputName" class="col-sm-2 control-label">单位名称:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="deptname" id="inputName" class="form-control" value="" title="">
+                            </div>
+                        </div>
+
+                        <div class="form-group" ng-show="showBoss|showBossFilter">
+                            <label for="inputBoss" class="col-sm-2 control-label">审批领导:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="boss" id="inputBoss" class="form-control" value="" title="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="inputshortname" class="col-sm-2 control-label">简称:</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="shortname" id="inputshortname" class="form-control" value="" title="">
+                            </div>
+                        </div>
+
+
+                        <input type="hidden" name="parent_id" id="inputparent_id" class="form-control" value="0">
+
+                        <div class="form-group">
+                            <div class="col-sm-10 col-sm-offset-2">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

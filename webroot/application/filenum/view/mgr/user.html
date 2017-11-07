@@ -1,0 +1,54 @@
+<div class="container">
+
+    <div class="page-header">
+        <h1>用户管理</h1>
+    </div>
+
+    <div class="navbar">
+
+        <form class="navbar-form pull-right">
+            <input type="text" style="width: 200px;">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+
+    </div>
+
+    <div class="row" ng-app="user_mgr">
+
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>单位</th>
+                    <th>IP</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody ng-controller="user-list">
+                <tr ng-repeat="user in users">
+                    <td>
+                        {{user.id}}
+                    </td>
+                    <td>
+                        {{user.name}}
+                    </td>
+                    <td>
+                        {{user.dept|showdept}}
+                    </td>
+                    <td>
+                        {{user.ip}}
+                    </td>
+                    <td>
+                        <a href="#">修改</a>&nbsp;|&nbsp;<a href="#">停用</a>&nbsp;|&nbsp; <a href="#">删除</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<script>
+    var url_get_user_list = "{:url('filenum/user/list')}";
+    var url_get_dept_list = "{:url('filenum/dept/list')}";
+</script>
